@@ -1,0 +1,72 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.quadrant-row {
+    display: flex;
+    height: 50vh;
+}
+
+.top-left, .top-right, .bottom-left, .bottom-right {
+    flex: 1 1 0;
+    border: 1px solid #000000;
+}
+
+.top-left {
+    background-color:#ff0000;
+}
+
+.top-right {
+    background-color: #0000ff;
+}
+
+.bottom-left {
+    background-color: #00ff00;
+}
+
+.bottom-right {
+    background-color: #800080;
+}
+
+.square, .triangle, .circle, .hexagon {
+    background-color: #000000;
+    width: 5vw;
+    aspect-ratio: 1 / 1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.square {
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 100%,
+        0% 100%
+    );
+}
+
+.triangle {
+    clip-path: polygon(
+        50% 0%,
+        0% 100%,
+        100% 100%
+    );
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.hexagon {
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
