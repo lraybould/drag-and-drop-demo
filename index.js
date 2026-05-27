@@ -19,6 +19,7 @@
         ALL_SHAPE_CLASSES = "circle square hexagon triangle",
         NUMBER_OF_SHAPES = 5;
     
+    // Initialise the app immediately after script loads using an IIFE
     (function _init() {
         _setInitialShapePositions();
         _bindEvents();
@@ -34,6 +35,7 @@
     }
 
     function _setupQuadrantsAsDroppable() {
+        // Handles shape drop event and updates shape class based on quadrant
         jQuery(QUADRANT_CLASS).droppable({
             accept: SHAPE_CLASS,
             drop: _onDragStop
@@ -70,7 +72,8 @@
     function _setInitialShapePositions() {
         const shapes = jQuery(SHAPE_CLASS);
         const spacing = (window.innerWidth / 2) / NUMBER_OF_SHAPES;
-
+        
+        // Evenly distribute the starting shapes within the top left starting quadrant.
         shapes.each(function (index) {
             jQuery(this).css({
                 left: index * spacing
