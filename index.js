@@ -16,9 +16,11 @@
 
     const SHAPE_CLASS = ".shape",
         QUADRANT_CLASS = ".quadrant",
-        ALL_SHAPE_CLASSES = "circle square hexagon triangle";
+        ALL_SHAPE_CLASSES = "circle square hexagon triangle",
+        NUMBER_OF_SHAPES = 5;
     
     (function _init() {
+        _setInitialShapePositions();
         _bindEvents();
     })();
 
@@ -61,6 +63,17 @@
         else if (quadrant.hasClass(QUADRANT.BOTTOM_RIGHT)) {
             return SHAPES.TRIANGLE;
         }
+    }
+
+    function _setInitialShapePositions() {
+        const shapes = jQuery(SHAPE_CLASS);
+        const spacing = (window.innerWidth / 2) / NUMBER_OF_SHAPES;
+
+        shapes.each(function (index) {
+            jQuery(this).css({
+                left: index * spacing
+            });
+        });
     }
 
 })();
