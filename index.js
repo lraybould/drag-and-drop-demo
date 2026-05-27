@@ -48,6 +48,8 @@
 
         shape.removeClass(ALL_SHAPE_CLASSES);
         shape.addClass(newShapeClass);
+
+        shape.attr('aria-labelledby', newShapeClass);
     }
 
     function _getShapeClassByQuadrant(quadrant) {
