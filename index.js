@@ -13,6 +13,10 @@
         BOTTOM_LEFT: "bottom-left",
         BOTTOM_RIGHT: "bottom-right" 
     };
+
+    const SHAPE_CLASS = ".shape",
+        QUADRANT_CLASS = ".quadrant",
+        ALL_SHAPE_CLASSES = "circle square hexagon triangle";
     
     (function _init() {
         _bindEvents();
@@ -24,12 +28,12 @@
     }
 
     function _setupDraggableShapes() {
-        jQuery(".shape").draggable();
+        jQuery(SHAPE_CLASS).draggable();
     }
 
     function _setupQuadrantsAsDroppable() {
-        jQuery(".quadrant").droppable({
-            accept: ".shape",
+        jQuery(QUADRANT_CLASS).droppable({
+            accept: SHAPE_CLASS,
             drop: _onDragStop
         });
     }
@@ -40,7 +44,7 @@
 
         const newShapeClass = _getShapeClassByQuadrant(quadrant);
 
-        shape.removeClass("circle square hexagon triangle");
+        shape.removeClass(ALL_SHAPE_CLASSES);
         shape.addClass(newShapeClass);
     }
 
